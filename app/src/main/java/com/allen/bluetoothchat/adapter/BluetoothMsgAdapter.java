@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
@@ -65,8 +66,8 @@ public class BluetoothMsgAdapter extends BaseAdapter {
             viewHolder.msg_left = (TextView) convertView.findViewById(R.id.msg_left_TV);
             viewHolder.msg_right = (TextView) convertView.findViewById(R.id.msg_right_TV);
 
-            viewHolder.left_ll = (LinearLayout) convertView.findViewById(R.id.left_msg_ll);
-            viewHolder.right_ll = (LinearLayout) convertView.findViewById(R.id.right_msg_ll);
+            viewHolder.left_ll = (RelativeLayout) convertView.findViewById(R.id.left_msg_ll);
+            viewHolder.right_ll = (RelativeLayout) convertView.findViewById(R.id.right_msg_ll);
 
             convertView.setTag(viewHolder);
         } else {
@@ -86,8 +87,8 @@ public class BluetoothMsgAdapter extends BaseAdapter {
     }
 
     private class ViewHolder {
-        private LinearLayout left_ll;
-        private LinearLayout right_ll;
+        private RelativeLayout left_ll;
+        private RelativeLayout right_ll;
         private TextView msg_left;
         private TextView msg_right;
     }

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/left_msg_ll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
-            android:layout_toEndOf="@+id/imageView2"
+            android:layout_toEndOf="@+id/imageView1"
             android:orientation="vertical">
 
             <TextView
@@ -41,25 +41,22 @@
         </LinearLayout>
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/right_msg_ll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:orientation="horizontal">
-
+        android:layout_alignBottom="@+id/left_msg_ll"
+        android:layout_alignParentEnd="true">
 
         <LinearLayout
             android:id="@+id/linearLayout"
             style="@style/chating_msg_send_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_gravity="center"
-            android:layout_toStartOf="@+id/relativeLayout"
+            android:layout_toStartOf="@+id/imageView2"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -76,8 +73,11 @@
             android:id="@+id/imageView2"
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
             android:layout_gravity="center"
             android:src="@mipmap/third_guide_head_2" />
-    </LinearLayout>
+    </RelativeLayout>
+
 
 </RelativeLayout>
