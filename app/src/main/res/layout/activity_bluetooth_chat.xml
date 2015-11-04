@@ -14,29 +14,31 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/msg_ll"
         android:layout_below="@+id/topbar"
-        android:padding="10dp"
         android:layout_weight="1"
         android:divider="@null"
-        android:transcriptMode="alwaysScroll" />
+        android:padding="10dp"
+        android:transcriptMode="alwaysScroll"
+        android:visibility="visible" />
 
     <LinearLayout
         android:id="@+id/msg_ll"
-        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@drawable/send_msg_text_background"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone">
 
         <EditText
             android:id="@+id/edit_text_out"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:maxLines="3"
             android:layout_marginLeft="10dp"
             android:layout_weight="10"
 
-             />
+            />
 
         <Button
             android:id="@+id/button_send"
@@ -54,5 +56,6 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:visibility="gone" />
+
 
 </RelativeLayout>

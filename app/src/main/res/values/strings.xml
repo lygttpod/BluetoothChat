@@ -22,9 +22,10 @@
     <string name="discoverable">Make discoverable</string>
 
     <string name="bt_tip">
-        1、保证对方也已安装此软件； \n
-        2、点击右上角搜索按钮搜索设备； \n
-        3、保证蓝牙开启并且对其他设备可见； \n
-        4、尽情畅谈吧！
+        使用说明：\n
+        1、保证对方也已安装此软件;\n
+        2、点击右上角搜索按钮搜索设备;\n
+        3、保证蓝牙开启并且对其他设备可见;\n
+        4、尽情畅谈吧!
     </string>
 </resources>

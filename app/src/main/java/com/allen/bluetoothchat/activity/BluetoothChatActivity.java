@@ -24,6 +24,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -32,6 +33,7 @@ import com.allen.bluetoothchat.adapter.BluetoothMsgAdapter;
 import com.allen.bluetoothchat.bean.MessageBean;
 import com.allen.bluetoothchat.bluetoothtools.BluetoothChatService;
 import com.allen.bluetoothchat.bluetoothtools.Constants;
+import com.allen.bluetoothchat.utils.SPUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -88,6 +90,7 @@ public class BluetoothChatActivity extends AppCompatActivity implements OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bluetooth_chat);
+        isshowdialog = (boolean) SPUtils.get(BluetoothChatActivity.this,"isshowtip",true);
         messageBeans = new ArrayList<>();
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         msg_ll = (LinearLayout) findViewById(R.id.msg_ll);
@@ -129,7 +132,6 @@ public class BluetoothChatActivity extends AppCompatActivity implements OnClickL
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.search:
-                        isshowdialog = false;
                         Intent serverIntent = new Intent(BluetoothChatActivity.this,
                                 DeviceListActivity.class);
                         startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE_SECURE);
@@ -170,6 +172,7 @@ public class BluetoothChatActivity extends AppCompatActivity implements OnClickL
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 isshowdialog = false;
+                SPUtils.put(BluetoothChatActivity.this,"isshowtip",isshowdialog);
                 dialog.dismiss();
             }
         });
@@ -317,7 +320,7 @@ public class BluetoothChatActivity extends AppCompatActivity implements OnClickL
                             "连接到 " + mConnectedDeviceName,
                             Toast.LENGTH_SHORT).show();
                     msg_ll.setVisibility(View.VISIBLE);
-
+                    mConversationView.setVisibility(View.VISIBLE);
                     break;
                 case Constants.MESSAGE_TOAST:
 
@@ -354,7 +357,7 @@ public class BluetoothChatActivity extends AppCompatActivity implements OnClickL
                     // User did not enable Bluetooth or an error occurred
                     Log.d(TAG, "BT not enabled");
                     Toast.makeText(this, R.string.bt_not_enabled_leaving,
-                            Toast.LENGTH_SHORT).show();
+                            Toast.LENGTH_LONG).show();
                     finish();
                 }
         }
